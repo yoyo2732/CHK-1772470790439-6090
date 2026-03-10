@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+  .stat-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 18px 20px; box-shadow: var(--shadow-sm); }
+  .stat-card .s-icon { font-size: 24px; margin-bottom: 8px; }
+  .stat-card .s-val { font-size: 28px; font-weight: 800; color: var(--navy); line-height: 1; margin-bottom: 3px; }
+  .stat-card .s-lbl { font-size: 12px; color: var(--text-muted); font-weight: 600; }
+  .stat-card.red .s-val { color: var(--red-risk); }
+  .stat-card.green .s-val { color: var(--green-risk); }
+  .stat-card.amber .s-val { color: var(--amber-risk); }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { background: var(--navy); color: #fff; text-align: left; padding: 11px 14px; font-size: 12px; font-weight: 700; letter-spacing: 0.3px; }
+  th:first-child { border-radius: 8px 0 0 0; }
+  th:last-child { border-radius: 0 8px 0 0; }
+  td { padding: 10px 14px; border-bottom: 1px solid var(--gray-100); color: var(--text-body); vertical-align: middle; }
+  tr:hover td { background: var(--off-white); }
+  .risk-pill { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; }
+  .risk-LOW { background: #DCFCE7; color: #15803D; }
+  .risk-MEDIUM { background: #FEF3C7; color: #D97706; }
+  .risk-HIGH { background: #FEE2E2; color: #C0392B; }
+  .status-pill-sm { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; border: 1px solid transparent; }
+  .s-Approved { background: #F0FDF4; color: #15803D; border-color: #bbf7d0; }
+  .s-Flagged { background: #FFF1F2; color: #C0392B; border-color: #fca5a5; }
+  .s-Under.Review, .s-Under { background: #FFFBEB; color: #D97706; border-color: #fde68a; }
+  @media (max-width: 768px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+</style>
+<div class="main">
+  <div class="page-banner">
+    <div class="page-banner-icon">🔧</div>
+    <div>
+      <h1>Admin Dashboard</h1>
+      <p>Monitor all applications, risk levels, and scheme distribution in real time.</p>
+    </div>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="s-icon">📋</div>
+      <div class="s-val">{{ total }}</div>
+      <div class="s-lbl">Total Applications</div>
+    </div>
+    <div class="stat-card red">
+      <div class="s-icon">🚨</div>
+      <div class="s-val">{{ flagged }}</div>
+      <div class="s-lbl">High Risk Flagged</div>
+    </div>
+    <div class="stat-card green">
+      <div class="s-icon">✅</div>
+      <div class="s-val">{{ approved }}</div>
+      <div class="s-lbl">Approved</div>
+    </div>
+    <div class="stat-card amber">
+      <div class="s-icon">⏳</div>
+      <div class="s-val">{{ under_review }}</div>
+      <div class="s-lbl">Under Review</div>
+    </div>
+  </div>
+
+  <div class="card" style="padding:0;overflow:hidden;">
+    <div style="padding:16px 20px;border-bottom:2px solid var(--gray-100);display:flex;align-items:center;gap:10px;">
+      <div style="font-size:18px;">📊</div>
+      <h2 style="font-size:14px;font-weight:700;color:var(--navy);">Application Log</h2>
+      <span style="margin-left:auto;font-size:12px;color:var(--text-muted);">{{ total }} records</span>
+    </div>
+    <div style="overflow-x:auto;">
+      <table>
+        <thead>
+          <tr>
+            <th>App ID</th><th>Name</th><th>State</th>
+            <th>Risk</th><th>Score</th><th>Schemes</th>
+            <th>Status</th><th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for a in apps %}
+          <tr>
+            <td><code style="font-size:12px;color:var(--navy-mid);">{{ a.app_id }}</code></td>
+            <td><strong>{{ a.name }}</strong></td>
+            <td>{{ a.state }}</td>
+            <td><span class="risk-pill risk-{{ a.fraud_level }}">{{ a.fraud_level }}</span></td>
+            <td>{{ a.fraud_score }}/100</td>
+            <td>{{ a.scheme_count }}</td>
+            <td><span class="status-pill-sm s-{{ a.status|replace(' ','') }}">{{ a.status }}</span></td>
+            <td style="font-size:12px;color:var(--text-muted);">{{ a.timestamp }}</td>
+          </tr>
+          {% else %}
+          <tr><td colspan="8" style="text-align:center;padding:40px;color:var(--text-muted);">No applications yet.</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

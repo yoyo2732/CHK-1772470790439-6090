@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container results-container">
+
+  <!-- ── RESULTS HEADER ── -->
+  <div class="results-header">
+    <div>
+      <h2 class="page-heading">{{ t.resultsHeading }}</h2>
+      <span class="app-id-tag">{{ t.appIdLabel }}: <strong>{{ app_id }}</strong></span>
+    </div>
+    <a href="{{ url_for('index', lang=lang) }}" class="back-btn">{{ t.backBtn }}</a>
+  </div>
+
+  <!-- ── STATUS BADGE ── -->
+  <div class="status-bar status-{{ status.lower().replace(' ','_') }}">
+    {% if status == "Approved" %}✅{% elif status == "Flagged" %}🚨{% else %}🔍{% endif %}
+    Application Status: <strong>{{ status }}</strong>
+  </div>
+
+  <!-- ── FRAUD RISK CARD ── -->
+  <div class="fraud-card risk-{{ fraud.level.lower() }}">
+    <div class="fraud-card-header">
+      <div>
+        <span class="ai-tag">✨ {{ t.poweredBy }}</span>
+        <h3 class="card-title">🔍 {{ t.fraudHeading }}</h3>
+      </div>
+      <div class="risk-badge risk-badge-{{ fraud.level.lower() }}">
+        {{ t['fraud' + fraud.level.capitalize()] }}
+      </div>
+    </div>
+
+    <!-- Score Meter -->
+    <div class="fraud-meter-wrap">
+      <div class="fraud-meter-labels">
+        <span>{{ t.fraudScore }}</span>
+        <span class="fraud-score-num risk-text-{{ fraud.level.lower() }}">{{ fraud.score }}/100</span>
+      </div>
+      <div class="fraud-meter-bar">
+        <div class="fraud-meter-fill risk-fill-{{ fraud.level.lower() }}"
+             style="width: {{ fraud.score }}%"></div>
+      </div>
+    </div>
+
+    <!-- ML Score -->
+    {% if fraud.ml_score is not none %}
+    <div class="ml-score-note">
+      🤖 ML Model Score: {{ fraud.ml_score }}/100 &nbsp;|&nbsp; Rule Score: {{ [(fraud.score * 2 - fraud.ml_score), 0] | max }}/100
+    </div>
+    {% endif %}
+
+    <!-- Explanation -->
+    <p class="fraud-explanation">{{ fraud.display_explanation }}</p>
+
+    <!-- Flags -->
+    {% if fraud.flags %}
+    <div class="fraud-flags-section">
+      <div class="flags-label">⚑ {{ t.fraudFlags }}</div>
+      <div class="flags-wrap">
+        {% for flag in fraud.flags %}
+        <span class="flag-tag">{{ flag }}</span>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+
+  <!-- ── SCHEME RECOMMENDATIONS ── -->
+  <h3 class="section-heading">
+    <span class="ai-tag">✨ {{ t.poweredBy }}</span><br>
+    📋 {{ t.schemesHeading }} ({{ schemes|length }})
+  </h3>
+
+  {% if schemes %}
+    {% for scheme in schemes %}
+    <div class="scheme-card" style="animation-delay: {{ loop.index0 * 0.07 }}s">
+      <div class="scheme-card-header">
+        <div>
+          <div class="scheme-name">{{ scheme.name }}</div>
+          <div class="scheme-ministry">{{ scheme.ministry }}</div>
+        </div>
+        <div class="scheme-badges">
+          <span class="category-badge">{{ scheme.category }}</span>
+          <span class="eligible-badge">✓ {{ t.eligible }}</span>
+        </div>
+      </div>
+
+      <p class="scheme-desc">{{ scheme.description }}</p>
+
+      <div class="scheme-meta-grid">
+        <div class="meta-box">
+          <div class="meta-label">✅ {{ t.eligible }}</div>
+          <div class="meta-value">{{ scheme.eligibility }}</div>
+        </div>
+        <div class="meta-box">
+          <div class="meta-label">🎁 {{ t.benefits }}</div>
+          <div class="meta-value">{{ scheme.benefits }}</div>
+        </div>
+        <div class="meta-box meta-full">
+          <div class="meta-label">📝 {{ t.howToApply }}</div>
+          <div class="meta-value">{{ scheme.how_to_apply }}</div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  {% else %}
+    <div class="empty-state">
+      <div class="empty-icon">📋</div>
+      <p>{{ t.noSchemes }}</p>
+    </div>
+  {% endif %}
+
+</div>
+{% endblock %}

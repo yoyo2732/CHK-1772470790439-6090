@@ -1,0 +1,2 @@
+app_id,name,age,state,income,occupation,fraud_score,fraud_level,scheme_count,status,flag_reason,timestamp
+APP60566,Test User,35,Maharashtra,80000,farmer,0,LOW,6,Approved,,2026-03-10 16:36

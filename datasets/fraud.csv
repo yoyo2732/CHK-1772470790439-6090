@@ -1,0 +1,51 @@
+Person_ID,Name,Age,Gender,State,District,Profession,Annual_Income,Family_Size,Bank_Account_Linked,Previous_Scheme_Benefits,Applications_Submitted,Fraud_Label
+P001,Applicant_1,45,Male,Maharashtra,Pune,Farmer,85000,4,1,5000,2,0
+P002,Applicant_2,32,Female,Uttar Pradesh,Lucknow,Laborer,42000,7,0,12000,5,1
+P003,Applicant_3,55,Male,Bihar,Patna,Farmer,60000,5,1,8000,3,0
+P004,Applicant_4,28,Female,Rajasthan,Jaipur,Student,25000,3,1,2000,1,0
+P005,Applicant_5,67,Male,Tamil Nadu,Chennai,Retired,35000,2,1,15000,2,0
+P006,Applicant_6,38,Male,Karnataka,Bangalore,Laborer,55000,8,0,45000,8,1
+P007,Applicant_7,42,Female,West Bengal,Kolkata,Farmer,70000,4,1,6000,2,0
+P008,Applicant_8,25,Male,Gujarat,Ahmedabad,Student,30000,6,0,55000,6,1
+P009,Applicant_9,50,Female,Madhya Pradesh,Bhopal,Farmer,90000,3,1,4000,1,0
+P010,Applicant_10,35,Male,Odisha,Bhubaneswar,Laborer,40000,9,0,62000,9,1
+P011,Applicant_11,48,Female,Punjab,Amritsar,Farmer,110000,4,1,7000,2,0
+P012,Applicant_12,22,Male,Haryana,Gurgaon,Student,20000,5,1,3000,1,0
+P013,Applicant_13,60,Female,Assam,Guwahati,Retired,28000,3,1,9000,2,0
+P014,Applicant_14,33,Male,Jharkhand,Ranchi,Laborer,38000,10,0,75000,10,1
+P015,Applicant_15,46,Female,Chhattisgarh,Raipur,Farmer,65000,4,1,5500,2,0
+P016,Applicant_16,29,Male,Himachal Pradesh,Shimla,Student,22000,2,1,1000,1,0
+P017,Applicant_17,19,Female,Uttar Pradesh,Varanasi,Teacher,708632,7,0,2735,2,1
+P018,Applicant_18,54,Male,Kerala,Thiruvananthapuram,Farmer,80000,5,1,6500,2,0
+P019,Applicant_19,37,Female,Andhra Pradesh,Visakhapatnam,Laborer,45000,7,0,38000,7,1
+P020,Applicant_20,41,Male,Telangana,Hyderabad,Business,150000,3,1,4000,1,0
+P021,Applicant_21,26,Female,Maharashtra,Nashik,Student,18000,4,1,2500,1,0
+P022,Applicant_22,63,Male,Rajasthan,Jodhpur,Farmer,55000,6,1,8000,3,0
+P023,Applicant_23,31,Female,Bihar,Gaya,Laborer,35000,8,0,48000,8,1
+P024,Applicant_24,47,Male,Uttar Pradesh,Kanpur,Farmer,75000,4,1,5000,2,0
+P025,Applicant_25,23,Female,Gujarat,Surat,Student,25000,3,1,1500,1,0
+P026,Applicant_26,58,Male,West Bengal,Howrah,Retired,32000,2,1,12000,2,0
+P027,Applicant_27,36,Female,Tamil Nadu,Madurai,Laborer,42000,9,0,60000,9,1
+P028,Applicant_28,44,Male,Karnataka,Mysore,Farmer,85000,5,1,7000,2,0
+P029,Applicant_29,27,Female,Madhya Pradesh,Indore,Student,22000,3,1,2000,1,0
+P030,Applicant_30,52,Male,Punjab,Ludhiana,Farmer,95000,4,1,6000,2,0
+P031,Applicant_31,39,Female,Haryana,Faridabad,Laborer,38000,10,0,70000,10,1
+P032,Applicant_32,20,Male,Assam,Dibrugarh,Student,15000,5,1,1000,1,0
+P033,Applicant_33,65,Female,Odisha,Cuttack,Retired,30000,3,1,11000,2,0
+P034,Applicant_34,34,Male,Jharkhand,Dhanbad,Laborer,40000,11,0,80000,11,1
+P035,Applicant_35,49,Female,Chhattisgarh,Bilaspur,Farmer,70000,4,1,5500,2,0
+P036,Applicant_36,24,Male,Kerala,Kochi,Student,20000,2,1,1500,1,0
+P037,Applicant_37,57,Female,Andhra Pradesh,Vijayawada,Farmer,78000,5,1,7000,3,0
+P038,Applicant_38,30,Male,Telangana,Warangal,Laborer,35000,8,0,52000,8,1
+P039,Applicant_39,43,Female,Rajasthan,Udaipur,Farmer,65000,4,1,4500,2,0
+P040,Applicant_40,36,Male,Maharashtra,Nashik,Business,620325,4,0,21668,1,1
+P041,Applicant_41,21,Female,Bihar,Muzaffarpur,Student,18000,6,1,2000,1,0
+P042,Applicant_42,62,Male,Uttar Pradesh,Agra,Retired,28000,3,1,13000,2,0
+P043,Applicant_43,35,Female,West Bengal,Siliguri,Laborer,42000,9,0,65000,9,1
+P044,Applicant_44,46,Male,Gujarat,Vadodara,Farmer,88000,4,1,6500,2,0
+P045,Applicant_45,28,Female,Tamil Nadu,Coimbatore,Student,23000,3,1,2000,1,0
+P046,Applicant_46,53,Male,Karnataka,Hubli,Farmer,82000,5,1,7500,2,0
+P047,Applicant_47,38,Female,Madhya Pradesh,Gwalior,Laborer,40000,10,0,72000,10,1
+P048,Applicant_48,25,Male,Punjab,Patiala,Student,19000,2,1,1000,1,0
+P049,Applicant_49,60,Female,Haryana,Panipat,Retired,29000,3,1,10000,2,0
+P050,Applicant_50,33,Male,Assam,Jorhat,Laborer,38000,11,0,78000,11,1
